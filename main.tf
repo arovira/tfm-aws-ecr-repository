@@ -31,7 +31,7 @@ resource "aws_ecr_lifecycle_policy" "ecr_repo" {
 # Allow access from different clusters:
 resource "aws_ecr_repository_policy" "ecr_repo" {
 
-  count = var.enable_access_from_external_account_clusters ? 1 : 0
+  count = var.enable_access_from_external_account ? 1 : 0
 
   repository = aws_ecr_repository.ecr_repo.name
 

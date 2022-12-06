@@ -49,7 +49,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="ecr_name"></a> [ecr\_name](#ecr\_name) | The name of the repository | `string` | `""` | yes |
 | <a name="ecr_image_tag_mutability"></a> [ecr\_image\_tag\_mutability](#ecr\_image\_tag\_mutability) | The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE` | `string` | `"MUTABLE"` | no |
-| <a name="enable_access_from_external_account_clusters"></a> [enable\_access\_from\_external\_account\_clusters](#enable\_access\_from\_external\_account\_clusters) | Enable access from other AWS accounts. Must be one of: `false` or `true`. Defaults to `false` | `bool` | `"false"` | no |
+| <a name="enable_access_from_external_account"></a> [enable\_access\_from\_external\_account](#enable\_access\_from\_external\_account) | Enable access from other AWS accounts. Must be one of: `false` or `true`. Defaults to `false` | `bool` | `"false"` | no |
 | <a name="external_account_access"></a> [external\_account\_access](#external\_account\_access) | List of AWS account ids to grant access to the repo | `list(string)` | `[]` | no |
 | <a name="aws_ecr_lifecycle_policy_rules"></a> [aws\_ecr\_lifecycle\_policy\_rules](#aws\_ecr\_lifecycle\_policy\_rules) | List lifecycle repo rules. Defaults to delete untagged after 30 days | `list(any)` | NA | no |
 | <a name="aws_ecr_encryption_type"></a> [aws\_ecr\_encryption\_type](#aws\_ecr\_encryption\_type) | he encryption type for the repository. Must be one of: `KMS` or `AES256`. Defaults to `KMS` | `string` | `null` | no |

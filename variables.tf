@@ -10,14 +10,14 @@ variable "ecr_image_tag_mutability" {
   type        = string
 }
 
-variable "enable_access_from_external_account_clusters" {
+variable "enable_access_from_external_account" {
   description = "If True, enable access from other aws accounts"
   default     = false
   type        = bool
 }
 
 variable "external_account_access" {
-  description = "Only used if enable_access_from_external_account_clusters is true. Accounts that should have access to this repo."
+  description = "Only used if enable_access_from_external_account is true. Accounts that should have access to this repo."
   default     = []
   type        = list(string)
 }
