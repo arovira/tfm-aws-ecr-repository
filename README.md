@@ -57,19 +57,7 @@ No modules.
 | <a name="ecr_image_tag_mutability"></a> [ecr\_image\_tag\_mutability](#ecr\_image\_tag\_mutability) | The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE` | `string` | `"MUTABLE"` | no |
 | <a name="enable_access_from_external_account_clusters"></a> [enable\_access\_from\_external\_account\_clusters](#enable\_access\_from\_external\_account\_clusters) | Enable access from other AWS accounts. Must be one of: `false` or `true`. Defaults to `false` | `bool` | `"false"` | no |
 | <a name="external_account_access"></a> [external\_account\_access](#external\_account\_access) | List of AWS account ids to grant access to the repo | `list(string)` | `[]` | no |
-| <a name="aws_ecr_lifecycle_policy_rules"></a> [aws\_ecr\_lifecycle\_policy\_rules](#aws\_ecr\_lifecycle\_policy\_rules) | List lifecycle repo rules. Defaults to delete untagged after 30 days | `list(any)` | `[{
-      description  = "Expire images older than 30 days",
-      rulePriority = 1,
-      selection = {
-        tagStatus   = "untagged"
-        countType   = "sinceImagePushed"
-        countUnit   = "days"
-        countNumber = 30
-      }
-      action = {
-        type = "expire"
-      }
-    }]` | no |
+| <a name="aws_ecr_lifecycle_policy_rules"></a> [aws\_ecr\_lifecycle\_policy\_rules](#aws\_ecr\_lifecycle\_policy\_rules) | List lifecycle repo rules. Defaults to delete untagged after 30 days | `list(any)` | NA | no |
 | <a name="aws_ecr_encryption_type"></a> [aws\_ecr\_encryption\_type](#aws\_ecr\_encryption\_type) | he encryption type for the repository. Must be one of: `KMS` or `AES256`. Defaults to `KMS` | `string` | `null` | no |
 | <a name="aws_kms_encryption_key"></a> [aws\_kms\_encryption\_key](#aws\_kms\_encryption\_key) | The ARN of the KMS key to use when encryption\_type is `KMS`. If not specified, uses the default AWS managed key for ECR | `string` | `null` | no |
 
