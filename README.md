@@ -6,8 +6,8 @@ Terraform module which creates AWS ECR resources.
 
 ```hcl
 module "ecr_repo" {
-  source                                       = "git::git@github.com:arovira/tfm-aws-ecr-repository.git"
-  ecr_name                                     = "example"
+  source   = "git::git@github.com:arovira/tfm-aws-ecr-repository.git"
+  ecr_name = "example"
 }
 
 ```

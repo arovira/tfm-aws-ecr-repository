@@ -18,8 +18,8 @@ variable "enable_access_from_external_account_clusters" {
 
 variable "external_account_access" {
   description = "Only used if enable_access_from_external_account_clusters is true. Accounts that should have access to this repo."
-  default = []
-  type = list(string)
+  default     = []
+  type        = list(string)
 }
 
 variable "aws_ecr_lifecycle_policy_rules" {
