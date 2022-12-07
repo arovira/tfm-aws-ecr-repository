@@ -28,7 +28,7 @@ Examples codified under the [`examples`](https://github.com/arovira/tfm-aws-ecr-
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](https://registry.terraform.io/hashicorp/aws) | >= 4.20 |
+| <a name="provider_aws"></a> [aws](https://registry.terraform.io/providers/hashicorp/aws/latest) | >= 4.20 |
 
 ## Modules
 
