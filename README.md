@@ -21,14 +21,13 @@ Examples codified under the [`examples`](https://github.com/arovira/tfm-aws-ecr-
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](https://developer.hashicorp.com/terraform/downloads) | >= 0.13.1 |
-
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.20.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](https://registry.terraform.io/providers/hashicorp/aws/latest) | >= 4.20 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.20.0 |
 
 ## Modules
 
@@ -38,26 +37,25 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_ecr_lifecycle_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_lifecycle_policy) | resource |
-| [aws_ecr_repository.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository) | resource |
-| [aws_ecr_repository_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository_policy) | resource |
+| [aws_ecr_lifecycle_policy.ecr_repo](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_lifecycle_policy) | resource |
+| [aws_ecr_repository.ecr_repo](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository) | resource |
+| [aws_ecr_repository_policy.ecr_repo](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository_policy) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="ecr_name"></a> [ecr\_name](#ecr\_name) | The name of the repository | `string` | `""` | yes |
-| <a name="ecr_image_tag_mutability"></a> [ecr\_image\_tag\_mutability](#ecr\_image\_tag\_mutability) | The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE` | `string` | `"MUTABLE"` | no |
-| <a name="enable_access_from_external_account"></a> [enable\_access\_from\_external\_account](#enable\_access\_from\_external\_account) | Enable access from other AWS accounts. Must be one of: `false` or `true`. Defaults to `false` | `bool` | `"false"` | no |
-| <a name="external_account_access"></a> [external\_account\_access](#external\_account\_access) | List of AWS account ids to grant access to the repo | `list(string)` | `[]` | no |
-| <a name="aws_ecr_lifecycle_policy_rules"></a> [aws\_ecr\_lifecycle\_policy\_rules](#aws\_ecr\_lifecycle\_policy\_rules) | List lifecycle repo rules. Defaults to delete untagged after 30 days | `list(any)` | NA | no |
-| <a name="aws_ecr_encryption_type"></a> [aws\_ecr\_encryption\_type](#aws\_ecr\_encryption\_type) | he encryption type for the repository. Must be one of: `KMS` or `AES256`. Defaults to `KMS` | `string` | `null` | no |
-| <a name="aws_kms_encryption_key"></a> [aws\_kms\_encryption\_key](#aws\_kms\_encryption\_key) | The ARN of the KMS key to use when encryption\_type is `KMS`. If not specified, uses the default AWS managed key for ECR | `string` | `null` | no |
-
+| <a name="input_aws_ecr_encryption_type"></a> [aws\_ecr\_encryption\_type](#input\_aws\_ecr\_encryption\_type) | Encryption type for ECR | `string` | `"KMS"` | no |
+| <a name="input_aws_ecr_lifecycle_policy_rules"></a> [aws\_ecr\_lifecycle\_policy\_rules](#input\_aws\_ecr\_lifecycle\_policy\_rules) | List of ECR Lifecycle rules to be created | `list(any)` | <pre>[<br>  {<br>    "action": {<br>      "type": "expire"<br>    },<br>    "description": "Expire images older than 30 days",<br>    "rulePriority": 1,<br>    "selection": {<br>      "countNumber": 30,<br>      "countType": "sinceImagePushed",<br>      "countUnit": "days",<br>      "tagStatus": "untagged"<br>    }<br>  }<br>]</pre> | no |
+| <a name="input_aws_kms_encryption_key"></a> [aws\_kms\_encryption\_key](#input\_aws\_kms\_encryption\_key) | Encryption kms key for ECR. Leave blank for ECR managed key. | `string` | `""` | no |
+| <a name="input_ecr_image_tag_mutability"></a> [ecr\_image\_tag\_mutability](#input\_ecr\_image\_tag\_mutability) | The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE. Defaults to MUTABLE. | `string` | `"MUTABLE"` | no |
+| <a name="input_ecr_name"></a> [ecr\_name](#input\_ecr\_name) | Name of the ECR repository to be created | `string` | n/a | yes |
+| <a name="input_enable_access_from_external_account"></a> [enable\_access\_from\_external\_account](#input\_enable\_access\_from\_external\_account) | If True, enable access from other aws accounts | `bool` | `false` | no |
+| <a name="input_external_account_access"></a> [external\_account\_access](#input\_external\_account\_access) | Only used if enable\_access\_from\_external\_account is true. Accounts that should have access to this repo. | `list(string)` | `[]` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="repository_url"></a> [repository\_url](#repository\_url) | The URL of the repository |
+| <a name="output_repository_url"></a> [repository\_url](#output\_repository\_url) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
