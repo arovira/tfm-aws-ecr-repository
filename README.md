@@ -2,14 +2,13 @@
 
 Terraform module which creates AWS ECR resources.
 
-### Repository
+### Usage
 
 ```hcl
 module "ecr_repo" {
   source   = "git::git@github.com:arovira/tfm-aws-ecr-repository.git"
   ecr_name = "example"
 }
-
 ```
 
 ## Examples
@@ -22,14 +21,14 @@ Examples codified under the [`examples`](https://github.com/arovira/tfm-aws-ecr-
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.22 |
+| <a name="requirement_terraform"></a> [terraform](https://developer.hashicorp.com/terraform/downloads) | >= 0.13.1 |
+
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.22 |
+| <a name="provider_aws"></a> [aws](https://registry.terraform.io/hashicorp/aws) | >= 4.20 |
 
 ## Modules
 
@@ -60,5 +59,5 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="repository_url"></a> [repository\_url](#output\_repository\_url) | The URL of the repository |
+| <a name="repository_url"></a> [repository\_url](#repository\_url) | The URL of the repository |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
